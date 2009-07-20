@@ -1,0 +1,52 @@
+/*
+* Xccessors Legacy v0.0.4: Cross-browser legacy non-standard accessors
+* http://code.eligrey.com/xccessors/legacy/
+* 
+* By Elijah Grey, http://eligrey.com
+*
+* A shim that implements __defineGetter__, __defineSetter__, __lookupGetter__, and __lookupSetter__
+* in browsers that have ECMAScript 5 accessor support but not the legacy methods.
+* 
+* Public Domain.
+* NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+*/
+(function () {
+	var defineProp = Object.defineProperty,
+	getProp = Object.getOwnPropertyDescriptor,
+
+	// methods being implemented
+	methods = ["__defineGetter__", "__defineSetter__", "__lookupGetter__", "__lookupSetter__"],
+
+	// objects to implement legacy methods onto their prototypes
+	extend = [Object, String, Array, Function, Boolean, Number,
+	RegExp, Date, Error, Element, Window, HTMLDocument], // Object.prototype[method] doesn't work on everything for IE
+
+	proto = "prototype";
+
+	function extendMethod(method, fun) {
+		if (!(method in {}))
+			for (var i=0; i<extend.length; i++)
+				extend[i][proto][method] = fun;
+	}
+
+	if (defineProp) {
+		extendMethod(methods[0], function (prop, fun) { // __defineGetter__
+			defineProp(this, prop, { get: fun });
+		});
+		
+		extendMethod(methods[1], function (prop, fun) { // __defineSetter__
+			defineProp(this, prop, { set: fun });
+		});
+	}
+	
+	if (getProp) {
+		extendMethod(methods[2], function (prop) { // __lookupGetter__
+			return getProp(this, prop).get ||
+				getProp(this.constructor[proto], prop).get; // look in prototype too
+		});
+		extendMethod(methods[3], function (prop) { // __lookupSetter__
+			return getProp(this, prop).set ||
+				getProp(this.constructor[proto], prop).set; // look in prototype too
+		});
+	}
+})();
