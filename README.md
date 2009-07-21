@@ -11,8 +11,3 @@ Xccessors Legacy
 ----------------
 
 Xccessors Legacy implements the legacy accessor methods (object.__define[GS]etter__ and object.__lookup[GS]etter__) in browsers that support the standard ECMAScript 5 accessor methods.
-
-License
--------
-
-Xccessors is dual licensed under the GNU GPL v3 and the X11/MIT license.
