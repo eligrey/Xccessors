@@ -1,6 +1,8 @@
 /*
-* Xccessors Legacy v0.0.4: Cross-browser legacy non-standard accessors
+* Xccessors Legacy v0.0.5: Cross-browser legacy non-standard accessors
 * http://code.eligrey.com/xccessors/legacy/
+* 
+* 2009-09-04
 * 
 * By Elijah Grey, http://eligrey.com
 *
@@ -11,21 +13,25 @@
 * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
 */
 (function () {
-	var defineProp = Object.defineProperty,
-	getProp = Object.getOwnPropertyDescriptor,
+	var
+	defineProp = Object.defineProperty,
+	getProp    = Object.getOwnPropertyDescriptor,
 
 	// methods being implemented
-	methods = ["__defineGetter__", "__defineSetter__", "__lookupGetter__", "__lookupSetter__"],
+	methods    = ["__defineGetter__", "__defineSetter__", "__lookupGetter__", "__lookupSetter__"],
 
 	// objects to implement legacy methods onto their prototypes
-	extend = [Object, String, Array, Function, Boolean, Number,
-	RegExp, Date, Error, Element, Window, HTMLDocument], // Object.prototype[method] doesn't work on everything for IE
+	// Object.prototype[method] doesn't work on everything for IE
+	extend     = [Object, String, Array, Function, Boolean, Number,
+	             RegExp, Date, Error, Element, Window, HTMLDocument],
+	len        = extend.length,
 
-	proto = "prototype";
+	proto      = "prototype",
 
-	function extendMethod(method, fun) {
+	extendMethod = function (method, fun) {
+		var i = len;
 		if (!(method in {}))
-			for (var i=0; i<extend.length; i++)
+			while (i--)
 				extend[i][proto][method] = fun;
 	}
 
