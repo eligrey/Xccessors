@@ -1,10 +1,10 @@
 /*
  * Xccessors Standard: Cross-browser ECMAScript 5 accessors
- * http://github.com/eligrey/Xccessors
+ * http://purl.eligrey.com/github/Xccessors
  * 
- * 2010-03-21
+ * 2010-06-20
  * 
- * By Elijah Grey, http://eligrey.com
+ * By Eli Grey, http://eligrey.com
  * 
  * A shim that partially implements Object.defineProperty,
  * Object.getOwnPropertyDescriptor, and Object.defineProperties in browsers that have
@@ -55,12 +55,11 @@
 
 				// can't switch off these features in ECMAScript 3
 				// so throw a TypeError if any are false
-				if (descriptor.writable === False || descriptor.enumerable === False ||
-				    descriptor.configurable === False)
+				if (!(descriptor.writable || descriptor.enumerable || descriptor.configurable))
 				{
 					throw new TypeError(
 						"This implementation of Object.defineProperty does not support" +
-						"false for configurable, enumerable, or writable."
+						" false for configurable, enumerable, or writable."
 					);
 				}
 				
@@ -78,7 +77,7 @@
 		if (!Object.getOwnPropertyDescriptor) {
 			Object.getOwnPropertyDescriptor = function (obj, prop) {
 				if (arguments.length < 2) { // all arguments required
-					throw new TypeError("Arguments not optional");
+					throw new TypeError("Arguments not optional.");
 				}
 				
 				prop += ""; // convert prop to string
