@@ -26,7 +26,7 @@
 	defineGetter = ObjectProto.__defineGetter__,
 	defineSetter = ObjectProto.__defineSetter__,
 	lookupGetter = ObjectProto.__lookupGetter__,
-	lookupSetter = ObjectProto.__lookupGetter__,
+	lookupSetter = ObjectProto.__lookupSetter__,
 	hasOwnProp = ObjectProto.hasOwnProperty;
 	
 	if (defineGetter && defineSetter && lookupGetter && lookupSetter) {
@@ -100,7 +100,7 @@
 				}
 
 				// there is an accessor, remove descriptor.writable;
-				// populate descriptor.get and descriptor.set
+				// populate descriptor.get and descriptor.set (IE's behavior)
 				delete descriptor.writable;
 				descriptor.get = descriptor.set = undefined;
 				
