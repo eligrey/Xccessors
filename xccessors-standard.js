@@ -2,7 +2,7 @@
  * Xccessors Standard: Cross-browser ECMAScript 5 accessors
  * http://purl.eligrey.com/github/Xccessors
  * 
- * 2010-06-20
+ * 2010-06-21
  * 
  * By Eli Grey, http://eligrey.com
  * 
@@ -55,7 +55,7 @@
 
 				// can't switch off these features in ECMAScript 3
 				// so throw a TypeError if any are false
-				if (!(descriptor.writable || descriptor.enumerable || descriptor.configurable))
+				if (!(descriptor.writable && descriptor.enumerable && descriptor.configurable))
 				{
 					throw new TypeError(
 						"This implementation of Object.defineProperty does not support" +
