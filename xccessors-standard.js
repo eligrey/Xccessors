@@ -17,6 +17,8 @@
 /*jslint white: true, onevar: true, undef: true, eqeqeq: true, plusplus: true,
   bitwise: true, regexp: true, strict: true, newcap: true, immed: true, maxlen: 90 */
 
+/*! @source http://purl.eligrey.com/github/Xccessors/blob/master/xccessors-standard.js*/
+
 "use strict";
 
 (function () {
