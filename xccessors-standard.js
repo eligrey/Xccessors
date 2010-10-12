@@ -10,8 +10,8 @@
  * Object.getOwnPropertyDescriptor, and Object.defineProperties in browsers that have
  * legacy __(define|lookup)[GS]etter__ support.
  * 
- * License: GNU GPL v3 and the X11/MIT license
- *   See COPYING.md
+ * Licensed under the X11/MIT License
+ *   See LICENSE.md
 */
 
 /*jslint white: true, onevar: true, undef: true, eqeqeq: true, plusplus: true,
