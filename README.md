@@ -27,4 +27,17 @@ and `object.__lookup[GS]etter__`) in browsers that support the standard
 ECMAScript 5 accessor methods.
 
 
+Supported Platforms
+-------------------
+
+* SpiderMonkey (Firefox, all Gecko browsers)
+* JavaScriptCore (Safari, many WebKit-based browsers)
+* V8 (Google Chrome, Chromium)
+* Futhark (Opera 9.5)
+* Carakan (Opera 10.5)
+* JScript 1.5 (Internet Explorer 8) (DOM elements and prototypes only)
+* Chakra (Internet Explorer 9)
+* Rhino
+* Narcissus
+
 ![Tracking image](//in.getclicky.com/212712ns.gif =1x1)
