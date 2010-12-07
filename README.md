@@ -35,7 +35,7 @@ Supported Platforms
 * V8 (Google Chrome, Chromium)
 * Futhark (Opera 9.5)
 * Carakan (Opera 10.5)
-* JScript 1.5 (Internet Explorer 8) (DOM elements and prototypes only)
+* JScript 1.5 (Internet Explorer 8; DOM elements and prototypes only)
 * Chakra (Internet Explorer 9)
 * Rhino
 * Narcissus
