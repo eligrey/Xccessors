@@ -23,8 +23,6 @@
 
 (function () {
 	var ObjectProto = Object.prototype,
-	True = !0,
-	False = !1,
 	defineGetter = ObjectProto.__defineGetter__,
 	defineSetter = ObjectProto.__defineSetter__,
 	lookupGetter = ObjectProto.__lookupGetter__,
@@ -85,9 +83,9 @@
 				prop += ""; // convert prop to string
 
 				var descriptor = {
-					configurable: True,
-					enumerable  : True,
-					writable    : True
+					configurable: true,
+					enumerable  : true,
+					writable    : true
 				},
 				getter = lookupGetter.call(obj, prop),
 				setter = lookupSetter.call(obj, prop);
