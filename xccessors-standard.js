@@ -14,14 +14,13 @@
  *   See LICENSE.md
 */
 
-/*jslint white: true, onevar: true, undef: true, eqeqeq: true, plusplus: true,
-  bitwise: true, regexp: true, strict: true, newcap: true, immed: true, maxlen: 90 */
+/*jslint white: true, undef: true, plusplus: true,
+  bitwise: true, regexp: true, newcap: true, maxlen: 90 */
 
 /*! @source http://purl.eligrey.com/github/Xccessors/blob/master/xccessors-standard.js*/
 
-"use strict";
-
 (function () {
+    "use strict";
 	var ObjectProto = Object.prototype,
 	defineGetter = ObjectProto.__defineGetter__,
 	defineSetter = ObjectProto.__defineSetter__,
@@ -55,7 +54,8 @@
 
 				// can't switch off these features in ECMAScript 3
 				// so throw a TypeError if any are false
-				if (!(descriptor.writable && descriptor.enumerable && descriptor.configurable))
+				if (!(descriptor.writable && 
+                    descriptor.enumerable && descriptor.configurable))
 				{
 					throw new TypeError(
 						"This implementation of Object.defineProperty does not support" +
@@ -117,7 +117,8 @@
 
 		if (!Object.defineProperties) {
 			Object.defineProperties = function (obj, props) {
-				for (var prop in props) {
+                var prop;
+				for (prop in props) {
 					if (hasOwnProp.call(props, prop)) {
 						Object.defineProperty(obj, prop, props[prop]);
 					}
