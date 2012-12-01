@@ -1,7 +1,7 @@
 Xccessors (cross-browser accessors) is a JavaScript shim that implements the legacy or
 standard methods for defining and looking up accessors (getters and setters) of objects.
 
-**Please note**: Internet Explorer 8 only supports getters and setters on the DOM, it's
+**Please note**: Internet Explorer 8 only supports getters and setters on the DOM, its
 prototypes (document, Element.prototype, etc.), and the window object. As long as you are
 setting an accessor on the window object, a DOM element, or a DOM prototype, Xccessors
 should work fine in every browser.
