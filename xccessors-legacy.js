@@ -2,7 +2,7 @@
  * Xccessors Legacy: Cross-browser legacy non-standard accessors
  * http://github.com/eligrey/Xccessors
  * 
- * 2010-03-21
+ * 2012-01-12
  * 
  * By Elijah Grey, http://eligrey.com
  *
@@ -14,7 +14,7 @@
  * NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
 */
 
-/*global Element, Window, HTMLDocument */
+/*global Element, Window */
 
 /*jslint white: true, undef: true, nomen: true, eqeqeq: true, bitwise: true, regexp: true,
   strict: true, newcap: true, immed: true, maxlen: 90 */
@@ -35,8 +35,8 @@
 
 	// objects to implement legacy methods onto their prototypes
 	// Object.prototype[method] doesn't work on everything for IE
-	extend     = [Object, String, Array, Function, Boolean, Number,
-	             RegExp, Date, Error, Element, Window, HTMLDocument],
+	extend     = [Object, String, Array, Function, Boolean,
+	              Number, RegExp, Date, Error, Element, Window],
 	len        = extend.length,
 	proto      = "prototype",
 	extendMethod = function (method, fun) {
