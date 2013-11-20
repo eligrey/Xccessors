@@ -57,15 +57,15 @@
 			defineProp(this, prop, { set: fun });
 		});
 	}
-	
-	if (getProp) {
-		extendMethod(methods[2], function (prop) { // __lookupGetter__
-			return getProp(this, prop).get ||
-				getProp(this.constructor[proto], prop).get; // look in prototype too
-		});
-		extendMethod(methods[3], function (prop) { // __lookupSetter__
-			return getProp(this, prop).set ||
-				getProp(this.constructor[proto], prop).set; // look in prototype too
-		});
-	}
+
+    if (getProp) {
+        extendMethod(methods[2], function (prop) { // __lookupGetter__
+            return ( (getProp(this, prop) && getProp(this, prop).get) ||
+                (getProp(this.constructor[proto], prop) && getProp(this.constructor[proto], prop).get )); // look in prototype too
+        });
+        extendMethod(methods[3], function (prop) { // __lookupSetter__
+            return ( (getProp(this, prop) && getProp(this, prop).set) ||
+                (getProp(this.constructor[proto], prop) && getProp(this.constructor[proto], prop).set )); // look in prototype too
+        });
+    }
 }());
