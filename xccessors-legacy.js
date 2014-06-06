@@ -4,7 +4,7 @@
  * 
  * 2012-01-12
  * 
- * By Elijah Grey, http://eligrey.com
+ * By Eli Grey, http://eligrey.com
  *
  * A shim that implements __defineGetter__, __defineSetter__, __lookupGetter__,
  * and __lookupSetter__
