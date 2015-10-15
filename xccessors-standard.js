@@ -10,7 +10,7 @@
  * Object.getOwnPropertyDescriptor, and Object.defineProperties in browsers that have
  * legacy __(define|lookup)[GS]etter__ support.
  * 
- * Licensed under the X11/MIT License
+ * Licensed under the MIT License
  *   See LICENSE.md
 */
 
